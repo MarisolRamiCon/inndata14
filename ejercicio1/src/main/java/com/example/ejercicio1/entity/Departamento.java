@@ -1,9 +1,15 @@
 package com.example.ejercicio1.entity;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name = "departamento")
+@AllArgsConstructor //Constructor con todos los datos
+@NoArgsConstructor //Constructor sin argumentos
+@Data //Getter y Setter
 public class Departamento {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -16,7 +22,10 @@ public class Departamento {
     @Column(name = "precio")
     private Double precio;
 
+    @Column(name = "is_active")
+    private Boolean isActive;
 
+/*
     public Departamento() {
     }
 
@@ -48,5 +57,5 @@ public class Departamento {
 
     public void setPrecio(Double precio) {
         this.precio = precio;
-    }
+    }*/
 }
