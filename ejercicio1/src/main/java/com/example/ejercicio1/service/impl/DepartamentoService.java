@@ -11,7 +11,7 @@ import java.util.Optional;
 
 @Service
 public class DepartamentoService implements IDepartamentoService {
-    @Autowired
+    @Autowired //inyeccion de dependencia
     DepartamentoRepository departamentoRepository;
 
     @Override
@@ -36,7 +36,7 @@ public class DepartamentoService implements IDepartamentoService {
     public Departamento update(Departamento departamento) {
         return departamentoRepository.save(departamento);
     }
-
+    //borrado lógico
     @Override
     public String deleteById(Integer id) {
         Optional<Departamento> departamento= departamentoRepository.findById(id);
@@ -48,5 +48,15 @@ public class DepartamentoService implements IDepartamentoService {
         }else{
             return "No esta";
         }
+    }
+
+    @Override
+    public List<Departamento> m2AndPrecio(Integer m2, Double precio) {
+        return departamentoRepository.findByM2LessThanEqualAndPrecioLessThanEqual(m2, precio);
+    }
+
+    @Override
+    public List<Departamento> precioAndM2(Integer m2, Double precio) {
+        return departamentoRepository.precioAndM2(m2,precio);
     }
 }

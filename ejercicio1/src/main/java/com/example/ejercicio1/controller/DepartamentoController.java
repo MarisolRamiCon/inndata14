@@ -2,6 +2,7 @@ package com.example.ejercicio1.controller;
 
 import com.example.ejercicio1.entity.Departamento;
 import com.example.ejercicio1.service.impl.DepartamentoService;
+import jakarta.websocket.server.PathParam;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -38,4 +39,16 @@ public class DepartamentoController {
         return departamentoService.deleteById(id);
     }
 
+    @GetMapping("/departamentos/m2Precio")
+    public List<Departamento> m2AndPrecio(@PathParam("m2") Integer m2,
+                                          @PathParam("precio") Double precio){
+        return departamentoService.m2AndPrecio(m2, precio);
+
+    }
+
+    @GetMapping("/departamentos/m2AndPrecio")
+    public List<Departamento> precioAndM2(@PathParam("m2") Integer m2,
+                                          @PathParam("precio") Double precio){
+        return departamentoService.precioAndM2(m2,precio);
+    }
 }
