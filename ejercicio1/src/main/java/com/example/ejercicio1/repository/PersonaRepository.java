@@ -1,4 +1,10 @@
 package com.example.ejercicio1.repository;
 
-public interface PersonaRepository {
+import com.example.ejercicio1.entity.Persona;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+@Repository
+public interface PersonaRepository extends JpaRepository<Persona, Integer>{
+
 }
