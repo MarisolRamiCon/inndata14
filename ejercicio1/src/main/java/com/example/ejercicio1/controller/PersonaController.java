@@ -1,6 +1,7 @@
 package com.example.ejercicio1.controller;
 
 import com.example.ejercicio1.entity.Persona;
+import com.example.ejercicio1.response.PersonaResponse;
 import com.example.ejercicio1.service.impl.PersonaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,7 +16,7 @@ public class PersonaController {
     @Autowired
     PersonaService personaService;
     @GetMapping("/personas")
-    public List<Persona> readAll(){
+    public List<PersonaResponse> readAll(){
         return personaService.readAll();
     }
 }
