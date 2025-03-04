@@ -59,4 +59,8 @@ public class DepartamentoService implements IDepartamentoService {
     public List<Departamento> precioAndM2(Integer m2, Double precio) {
         return departamentoRepository.precioAndM2(m2,precio);
     }
+
+    public double suma(double a, double b){
+        return a+b;
+    }
 }
